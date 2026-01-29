@@ -19,4 +19,4 @@ select
     greatest(l.updated_at, h.updated_at) as last_updated_at
 from l 
 left join h
-    on l.host_id = h.host_id;
+    on l.host_id = h.host_id
