@@ -16,9 +16,9 @@ full_moon_dates as (
 select
     r.*,
     case
-        when fm.full_moon_date is not null 
+        when fm.full_moon_date is null 
         then 'not full moon'
-        else 'fool moon'
+        else 'full moon'
     end as is_full_moon
 from
     fct_reviews as r
