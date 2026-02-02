@@ -1,0 +1,26 @@
+{{
+    config(
+        materialized='table'
+    )
+}}
+
+with fct_reviews as (
+    select * 
+    from {{ ref('fct_fullmoon_reviews') }}
+),
+full_moon_dates as (
+    select * 
+    from {{ ref('seed_full_moon_dates') }}
+)
+
+select
+    r.*,
+    case
+        when fm.full_moon_date is not null 
+        then 'not full moon'
+        else 'fool moon'
+    end as is_full_moon
+from
+    fct_reviews as r
+    left join full_moon_dates as fm
+        on to_date(r.review_date) = dateadd(day, 1, fm.full_moon_date)
