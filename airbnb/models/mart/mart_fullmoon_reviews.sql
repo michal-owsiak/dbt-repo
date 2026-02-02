@@ -6,7 +6,7 @@
 
 with fct_reviews as (
     select * 
-    from {{ ref('fct_fullmoon_reviews') }}
+    from {{ ref('fct_reviews') }}
 ),
 full_moon_dates as (
     select * 
