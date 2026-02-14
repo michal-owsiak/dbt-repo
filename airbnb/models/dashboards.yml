@@ -1,0 +1,16 @@
+exposures:
+  - name: executive_dashboard
+    label: Executive Dashboard
+    type: dashboard
+    maturity: low
+    url: https://404f4876.us1a.app.preset.io/superset/dashboard/8/?edit=true&native_filters_key=MgCSo1IMZ1M7v5y_DvzOPJiCyAyqmbOKhcNKq4C0RAx2dMttWNMpforwRvHE0Oot
+    description: Executive Dashboard about Airbnb listings and hosts
+
+
+    depends_on:
+      - ref('dim_listings_with_hosts')
+      - ref('mart_fullmoon_reviews')
+
+    owner:
+      name: Michał Owsiak
+      email: micowsiak@gmail.com
